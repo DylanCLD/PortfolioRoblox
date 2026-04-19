@@ -85,11 +85,11 @@ const PROJECTS = [
     long: `Collection de VFX et animations créés pour Roblox :\n• Animations de combat et de mouvements\n• Effets de particules custom\n• Transitions et animations UI\n• Réalisé avec Moon Animator 2\n• Optimisé pour les performances`,
     long_en: `Collection of VFX and animations created for Roblox:\n• Combat and movement animations\n• Custom particle effects\n• UI transitions and animations\n• Made with Moon Animator 2\n• Performance optimized`,
     tags: ['VFX', 'Moon Animator 2', 'Particles', 'LuaU', 'TweenService'],
-    thumbnail: 'Assets/Project/vfx/image.png',
+    thumbnail: 'Assets/Project/VFX/image.png',
     youtubeId: 'YC3747LODdM',
     images: [
-      'Assets/Project/vfx/image.png',
-      'Assets/Project/vfx/image1.png'
+      'Assets/Project/VFX/image.png',
+      'Assets/Project/VFX/image1.png'
     ]
   },
   {
