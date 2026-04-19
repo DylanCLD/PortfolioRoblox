@@ -512,7 +512,8 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .stats-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .stats-section { padding: 3rem 0 4rem; overflow: visible; }
 }
 
 /* ── CONTACT & PROFILES SECTION ── */
@@ -551,7 +552,10 @@ nav {
   height: 60px;
   border-radius: 50%;
   background-color: #222;
+  background-size: 110% !important;
+  background-position: center !important;
   border: 2px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
 }
 .profile-info h4 {
   font-family: 'Outfit', sans-serif;
@@ -937,7 +941,7 @@ body.modal-open { overflow: hidden; }
   nav { padding: 1.5rem 1.5rem; flex-direction: row; align-items: center; justify-content: space-between; }
   .nav-right { width: auto; justify-content: flex-end; }
   
-  .wrapper { padding: 0 1.5rem; width: 100%; overflow: hidden; }
+  .wrapper { padding: 0 1.5rem; width: 100%; }
   
   .hero { padding-top: 6rem; }
   .hero-title { font-size: clamp(3rem, 15vw, 4.5rem); margin-bottom: 2rem; }
@@ -947,7 +951,6 @@ body.modal-open { overflow: hidden; }
   .scroll-down-fixed { bottom: 1.5rem; width: 40px; height: 40px; }
   
   /* Stats adjustments */
-  .stats-section { padding: 4rem 0; }
   .stat-num { font-size: 3rem; }
   
   .brands-section { padding: 5rem 0; width: 100%; overflow: hidden; }
