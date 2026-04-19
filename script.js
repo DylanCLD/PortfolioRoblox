@@ -85,11 +85,11 @@ const PROJECTS = [
     long: `Collection de VFX et animations créés pour Roblox :\n• Animations de combat et de mouvements\n• Effets de particules custom\n• Transitions et animations UI\n• Réalisé avec Moon Animator 2\n• Optimisé pour les performances`,
     long_en: `Collection of VFX and animations created for Roblox:\n• Combat and movement animations\n• Custom particle effects\n• UI transitions and animations\n• Made with Moon Animator 2\n• Performance optimized`,
     tags: ['VFX', 'Moon Animator 2', 'Particles', 'LuaU', 'TweenService'],
-    thumbnail: 'assets/Project/vfx/image.png',
+    thumbnail: 'Assets/Project/vfx/image.png',
     youtubeId: 'YC3747LODdM',
     images: [
-      'assets/Project/vfx/image.png',
-      'assets/Project/vfx/image1.png'
+      'Assets/Project/vfx/image.png',
+      'Assets/Project/vfx/image1.png'
     ]
   },
   {
@@ -104,18 +104,18 @@ const PROJECTS = [
     long: `Sélection de modèles 3D réalisés pour différents projets :\n• Armure custom\n• Hache de combat\n• Dague\n• Gourdin\n• Sceptre\n• Assets divers`,
     long_en: `Selection of 3D models made for various projects:\n• Custom armor\n• Battle axe\n• Dagger\n• Club\n• Scepter\n• Various assets`,
     tags: ['ZBrush', 'Blender', 'Low-poly', 'Textures', 'Roblox'],
-    thumbnail: 'assets/Project/3d/Armor._Camera_1.png',
+    thumbnail: 'Assets/Project/3d/Armor._Camera_1.png',
     youtubeId: '',
     images: [
-      'assets/Project/3d/Armor._Camera_1.png',
-      'assets/Project/3d/Axe_Camera_1_005.png',
-      'assets/Project/3d/Dague_Camera_1_004.png',
-      'assets/Project/3d/Gourdin_Camera_1.png',
-      'assets/Project/3d/Sceptre._Camera_1.png',
-      'assets/Project/3d/image.png',
-      'assets/Project/3d/image2.png',
-      'assets/Project/3d/image3.png',
-      'assets/Project/3d/image4.png'
+      'Assets/Project/3d/Armor._Camera_1.png',
+      'Assets/Project/3d/Axe_Camera_1_005.png',
+      'Assets/Project/3d/Dague_Camera_1_004.png',
+      'Assets/Project/3d/Gourdin_Camera_1.png',
+      'Assets/Project/3d/Sceptre._Camera_1.png',
+      'Assets/Project/3d/image.png',
+      'Assets/Project/3d/image2.png',
+      'Assets/Project/3d/image3.png',
+      'Assets/Project/3d/image4.png'
     ]
   },
   {
@@ -130,22 +130,22 @@ const PROJECTS = [
     long: `Sélection d'interfaces UI/UX réalisées pour différents projets :\n• Menus principaux\n• HUD in-game\n• Systèmes d'inventaire\n• Écrans de progression\n• Interfaces de boutique`,
     long_en: `Selection of UI/UX interfaces made for various projects:\n• Main menus\n• In-game HUD\n• Inventory systems\n• Progression screens\n• Shop interfaces`,
     tags: ['Figma', 'ScreenGui', 'TweenService', 'UI Design', 'Roblox'],
-    thumbnail: 'assets/Project/UI/image.png',
+    thumbnail: 'Assets/Project/UI/image.png',
     youtubeId: '',
     images: [
-      'assets/Project/UI/image.png',
-      'assets/Project/UI/image2.png',
-      'assets/Project/UI/image3.png',
-      'assets/Project/UI/image4.png',
-      'assets/Project/UI/image5.png',
-      'assets/Project/UI/image6.png',
-      'assets/Project/UI/image7.png',
-      'assets/Project/UI/image8.png',
-      'assets/Project/UI/image9.png',
-      'assets/Project/UI/image10.png',
-      'assets/Project/UI/image11.png',
-      'assets/Project/UI/image12.png',
-      'assets/Project/UI/image13.png'
+      'Assets/Project/UI/image.png',
+      'Assets/Project/UI/image2.png',
+      'Assets/Project/UI/image3.png',
+      'Assets/Project/UI/image4.png',
+      'Assets/Project/UI/image5.png',
+      'Assets/Project/UI/image6.png',
+      'Assets/Project/UI/image7.png',
+      'Assets/Project/UI/image8.png',
+      'Assets/Project/UI/image9.png',
+      'Assets/Project/UI/image10.png',
+      'Assets/Project/UI/image11.png',
+      'Assets/Project/UI/image12.png',
+      'Assets/Project/UI/image13.png'
     ]
   },
   {
@@ -160,14 +160,14 @@ const PROJECTS = [
     long: `5 mondes anime construits pour Anime Treasure Simulator :\n• One Piece — Grand Line\n• Dragon Ball Z — Namek & Terre\n• Bleach — Soul Society\n• Naruto — Village de Konoha\n• Solo Leveling — Donjons & Porte`,
     long_en: `5 anime worlds built for Anime Treasure Simulator:\n• One Piece — Grand Line\n• Dragon Ball Z — Namek & Earth\n• Bleach — Soul Society\n• Naruto — Konoha Village\n• Solo Leveling — Dungeons & Gate`,
     tags: ['Map', 'Anime', 'One Piece', 'DBZ', 'Naruto', 'Bleach', 'Solo Leveling'],
-    thumbnail: 'assets/Project/Map1/image.png',
+    thumbnail: 'Assets/Project/Map1/image.png',
     youtubeId: '',
     images: [
-      'assets/Project/Map1/image.png',
-      'assets/Project/Map1/image2.png',
-      'assets/Project/Map1/image3.png',
-      'assets/Project/Map1/image4.png',
-      'assets/Project/Map1/image5.png'
+      'Assets/Project/Map1/image.png',
+      'Assets/Project/Map1/image2.png',
+      'Assets/Project/Map1/image3.png',
+      'Assets/Project/Map1/image4.png',
+      'Assets/Project/Map1/image5.png'
     ]
   },
   {
@@ -182,15 +182,15 @@ const PROJECTS = [
     long: `Map complète pour un jeu AFK factory anime :\n• Zone de production de boxes en idle\n• Système de héros animé à collectionner\n• Ambiance factory industrielle et anime\n• Optimisée pour de nombreux joueurs simultanés`,
     long_en: `Complete map for an anime AFK factory game:\n• Idle box production area\n• Collectable anime hero system\n• Industrial anime factory atmosphere\n• Optimized for many simultaneous players`,
     tags: ['Map', 'AFK', 'Factory', 'Anime', 'Simulator'],
-    thumbnail: 'assets/Project/Maps2/image.png',
+    thumbnail: 'Assets/Project/Maps2/image.png',
     youtubeId: '',
     images: [
-      'assets/Project/Maps2/image.png',
-      'assets/Project/Maps2/image2.png',
-      'assets/Project/Maps2/image3.png',
-      'assets/Project/Maps2/image4.png',
-      'assets/Project/Maps2/image5.png',
-      'assets/Project/Maps2/image6.png'
+      'Assets/Project/Maps2/image.png',
+      'Assets/Project/Maps2/image2.png',
+      'Assets/Project/Maps2/image3.png',
+      'Assets/Project/Maps2/image4.png',
+      'Assets/Project/Maps2/image5.png',
+      'Assets/Project/Maps2/image6.png'
     ]
   },
   {
@@ -205,11 +205,11 @@ const PROJECTS = [
     long: `Un jeu Roblox complet de type simulateur :\n• Système de creusage et détection de trésors\n• Amélioration de base progressive\n• Exploration de nouveaux mondes débloquables\n• Progression et récompenses procédurales\n• Univers anime avec assets custom`,
     long_en: `A complete Roblox simulator game:\n• Digging & treasure detection system\n• Progressive base upgrading\n• Explorable unlockable worlds\n• Procedural progression & rewards\n• Anime universe with custom assets`,
     tags: ['Full Game', 'Simulator', 'LuaU', 'DataStore', 'MoonAnimator2'],
-    thumbnail: 'assets/Project/game1/image.png',
+    thumbnail: 'Assets/Project/game1/image.png',
     youtubeId: 'ZYCvFV-1o4s',
     images: [
-      'assets/Project/game1/image.png',
-      'assets/Project/game1/image2.png'
+      'Assets/Project/game1/image.png',
+      'Assets/Project/game1/image2.png'
     ]
   },
   {
@@ -224,9 +224,9 @@ const PROJECTS = [
     long: `Système de progression RPG complet et modulaire :\n• UI data-binding dynamique\n• Optimisation mémoire poussée\n• Anti-exploit côté serveur\n• Réplication réseau optimisée\n• Architecture modulaire réutilisable`,
     long_en: `Complete modular RPG progression system:\n• Dynamic UI data-binding\n• Memory-optimized architecture\n• Server-side anti-exploit\n• Optimized network replication\n• Reusable modular structure`,
     tags: ['UI/Data Binding', 'Memory Optimized', 'Anti-Exploit', 'Network Replication', 'Modular Structure'],
-    thumbnail: 'assets/Project/RpgProgressionUI/image.png',
+    thumbnail: 'Assets/Project/RpgProgressionUI/image.png',
     youtubeId: 'acuwandB8s0',
-    images: ['assets/Project/RpgProgressionUI/image.png']
+    images: ['Assets/Project/RpgProgressionUI/image.png']
   },
   {
     id: 'procedural-dungeon',
@@ -240,9 +240,9 @@ const PROJECTS = [
     long: `Moteur de génération procédurale avancé :\n• Génération basée sur seed reproductible\n• Théorie des graphes pour la structure\n• Object pooling pour les performances\n• Gestion des seeds\n• Pathfinding dynamique`,
     long_en: `Advanced procedural generation engine:\n• Reproducible seed-based generation\n• Graph theory for dungeon structure\n• Object pooling for performance\n• Seed management system\n• Dynamic pathfinding`,
     tags: ['PCG', 'Graph Theory', 'Object Pooling', 'Seed Management', 'Dynamic Pathfinding'],
-    thumbnail: 'assets/Project/Dungeon/image1.png',
+    thumbnail: 'Assets/Project/Dungeon/image1.png',
     youtubeId: '-PQRMW4v3l8',
-    images: ['assets/Project/Dungeon/image1.png', 'assets/Project/Dungeon/image2.png']
+    images: ['Assets/Project/Dungeon/image1.png', 'Assets/Project/Dungeon/image2.png']
   },
   {
     id: 'reward-system',
@@ -256,9 +256,9 @@ const PROJECTS = [
     long: `Système de récompenses fluide et performant :\n• LuaU optimisé\n• TweenService pour les animations UI\n• Client-authoritative pour la réactivité\n• Intégration MoonAnimator2\n• Effets sonores synchronisés`,
     long_en: `Smooth and performant reward system:\n• Optimized LuaU code\n• TweenService for UI animations\n• Client-authoritative for responsiveness\n• MoonAnimator2 integration\n• Synchronized SFX`,
     tags: ['LuaU', 'TweenService', 'Client-Authoritative', 'MoonAnimator2', 'SFX'],
-    thumbnail: 'assets/Project/Chest/image.png',
+    thumbnail: 'Assets/Project/Chest/image.png',
     youtubeId: 'Z1YpsINUhv8',
-    images: ['assets/Project/Chest/image.png']
+    images: ['Assets/Project/Chest/image.png']
   }
 ];
 
