@@ -16,9 +16,12 @@ const TRANSLATIONS = {
     projects_title: "PROJETS",
     projects_desc: "Chez OLabs, chaque projet est pensé pour Roblox : des scripts optimisés, des maps immersives et des interfaces soignées qui font la différence dans un jeu. On livre du sérieux, à chaque fois.",
     team_title: "L'ÉQUIPE",
-    role_snyko: "Developper + VFX",
+    role_snyko: "Développeur | VFX",
     role_wolfis: "UI/UX Designer",
     role_byzerma: "Modélisateur 3D",
+    bio_snyko: "Développeur Lua depuis 6 ans, passé de Garry's Mod à Roblox. Maîtrise avancée du LuaU, scripting serveur & client. Se perfectionne en VFX depuis quelques mois — niveau intermédiaire et en progression constante.",
+    bio_wolfis: "4 ans de graphisme et de conception UI/UX. Responsable du confort visuel, de la lisibilité et de l'esthétique de chaque interface. Crée aussi des maps pour le fun et sait jongler entre design et level art.",
+    bio_byzerma: "5 ans de modélisation 3D, forgés par un long parcours et une formation de niveau master. Chaque asset est pensé propre, optimisé et prêt pour la production. Rigueur technique et sens du détail à chaque étape.",
     contact_title: "CONTACT",
     contact_desc: "Prêt à démarrer un projet avec nous ? Nous prenons toutes les commandes sur notre serveur Discord.",
     contact_btn: "Rejoindre le Discord OLabs",
@@ -37,9 +40,12 @@ const TRANSLATIONS = {
     projects_title: "PROJECTS",
     projects_desc: "At OLabs, every project is built for Roblox: optimized scripts, immersive maps, and polished interfaces that make a real difference in a game. We deliver quality, every time.",
     team_title: "THE TEAM",
-    role_snyko: "Developer + VFX",
+    role_snyko: "Developer | VFX",
     role_wolfis: "UI/UX Designer",
     role_byzerma: "3D Modeler",
+    bio_snyko: "Lua developer for 6 years, moved from Garry's Mod to Roblox. Advanced LuaU skills, server & client scripting. Currently leveling up in VFX — intermediate level and growing fast.",
+    bio_wolfis: "4 years in graphic design and UI/UX. Handles visual comfort, readability and overall aesthetics of every interface. Also builds maps for fun and bridges design with level art.",
+    bio_byzerma: "5 years of 3D modeling built through an extensive journey and a master-level education. Every asset is clean, optimized and production-ready. Technical precision at every step.",
     contact_title: "CONTACT",
     contact_desc: "Ready to start a project with us? We take all our orders directly on our Discord server.",
     contact_btn: "Join OLabs Discord",
@@ -101,9 +107,9 @@ const PROJECTS = [
     categoryLabel_en: '3D Modeling',
     short: 'Collection de modèles 3D — armes, armures et assets créés pour Roblox.',
     short_en: 'Collection of 3D models — weapons, armor and assets created for Roblox.',
-    long: `Sélection de modèles 3D réalisés pour différents projets :\n• Armure custom\n• Hache de combat\n• Dague\n• Gourdin\n• Sceptre\n• Assets divers`,
-    long_en: `Selection of 3D models made for various projects:\n• Custom armor\n• Battle axe\n• Dagger\n• Club\n• Scepter\n• Various assets`,
-    tags: ['ZBrush', 'Blender', 'Low-poly', 'Textures', 'Roblox'],
+    long: `Sélection de modèles 3D réalisés pour différents projets :\n• Armure custom\n• Hache de combat\n• Dague\n• Boîtes animé (One Piece, DBZ, Naruto...)\n• Environnement portail japonais\n• Assets divers`,
+    long_en: `Selection of 3D models made for various projects:\n• Custom armor\n• Battle axe\n• Dagger\n• Anime boxes (One Piece, DBZ, Naruto...)\n• Japanese portal environment\n• Various assets`,
+    tags: ['ZBrush', 'Adobe Substance 3D', 'Low-poly', 'Textures', 'Roblox'],
     thumbnail: 'Assets/Project/3d/Armor._Camera_1.png',
     youtubeId: '',
     images: [
@@ -112,10 +118,13 @@ const PROJECTS = [
       'Assets/Project/3d/Dague_Camera_1_004.png',
       'Assets/Project/3d/Gourdin_Camera_1.png',
       'Assets/Project/3d/Sceptre._Camera_1.png',
-      'Assets/Project/3d/image.png',
-      'Assets/Project/3d/image2.png',
-      'Assets/Project/3d/image3.png',
-      'Assets/Project/3d/image4.png'
+      'Assets/Project/3d/Coffre_all.jpg',
+      'Assets/Project/3d/coffre_DB.jpg',
+      'Assets/Project/3d/coffre_naruto.jpg',
+      'Assets/Project/3d/coffre_secret.jpg',
+      'Assets/Project/3d/image4.png',
+      'Assets/Project/3d/render_enviro.jpg',
+      'Assets/Project/3d/render_enviro_001.jpg'
     ]
   },
   {
@@ -290,9 +299,25 @@ function renderProjects() {
     `;
   }).join('');
 
-  // Attach click handlers
+  // Attach click handlers + 3D tilt
   grid.querySelectorAll('.laptop-mockup').forEach(card => {
     card.addEventListener('click', () => openModal(card.dataset.id));
+
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5; // -0.5 → 0.5
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      const rotY =  x * 18;  // deg
+      const rotX = -y * 12;
+      const lift = 12;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-${lift}px)`;
+      card.classList.remove('tilt-reset');
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.classList.add('tilt-reset');
+      card.style.transform = '';
+    });
   });
 
   // Re-observe reveals
@@ -500,6 +525,24 @@ function showMedia(media, index) {
     const fitClass = currentProject && (currentProject.category === 'uiux' || currentProject.id === 'vfx-anims' || currentProject.id === 'portfolio-3d') ? ' fit-contain' : '';
     stage.innerHTML = `<img src="${m.src}" alt="Screenshot" class="${fitClass.trim()}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'media-empty',textContent:'Image introuvable.'}))"/>`;
   }
+
+  // Inject nav arrows (only when multiple media)
+  if (media.length > 1) {
+    const arrowLeft = document.createElement('button');
+    arrowLeft.className = 'stage-arrow left';
+    arrowLeft.setAttribute('aria-label', 'Précédent');
+    arrowLeft.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>`;
+    arrowLeft.addEventListener('click', () => showMedia(media, (currentMediaIndex - 1 + media.length) % media.length));
+
+    const arrowRight = document.createElement('button');
+    arrowRight.className = 'stage-arrow right';
+    arrowRight.setAttribute('aria-label', 'Suivant');
+    arrowRight.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>`;
+    arrowRight.addEventListener('click', () => showMedia(media, (currentMediaIndex + 1) % media.length));
+
+    stage.appendChild(arrowLeft);
+    stage.appendChild(arrowRight);
+  }
 }
 
 function closeModal() {
@@ -530,6 +573,52 @@ document.addEventListener('keydown', (e) => {
       showMedia(media, (currentMediaIndex - 1 + media.length) % media.length);
     }
   }
+});
+
+/* ============================================================
+   PROFILE CARD FLIP
+   ============================================================ */
+document.querySelectorAll('.profile-card-wrap').forEach(wrap => {
+  const inner = wrap.querySelector('.profile-card-inner');
+  let flipped = false;
+  let hovering = false;
+  let lastX = 0, lastY = 0;
+
+  const HEIGHT_SMALL = '88px';
+  const HEIGHT_LARGE = '155px';
+  let isFlipping = false;
+
+  wrap.addEventListener('click', () => {
+    flipped = !flipped;
+    isFlipping = true;
+    wrap.classList.toggle('flipped', flipped);
+    inner.style.transition = 'transform 1.3s cubic-bezier(0.4,0.2,0.2,1), height 1.3s cubic-bezier(0.4,0.2,0.2,1)';
+    inner.style.transform = '';
+    inner.style.height = flipped ? HEIGHT_LARGE : HEIGHT_SMALL;
+    const onDone = (e) => { if (e.propertyName === 'transform') { isFlipping = false; inner.removeEventListener('transitionend', onDone); } };
+    inner.addEventListener('transitionend', onDone);
+  });
+
+  wrap.addEventListener('mousemove', e => {
+    if (isFlipping) return;
+
+    hovering = true;
+    const rect = wrap.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width  - 0.5;
+    const y = (e.clientY - rect.top)  / rect.height - 0.5;
+    lastX = -y * 12;
+    lastY =  x * 18;
+    const base = flipped ? 180 : 0;
+    inner.style.transition = 'transform 0.1s ease-out';
+    inner.style.transform = `perspective(900px) rotateX(${lastX}deg) rotateY(${base + lastY}deg) translateY(-8px)`;
+  });
+
+  wrap.addEventListener('mouseleave', () => {
+    hovering = false;
+    if (isFlipping) return;
+    inner.style.transition = 'transform 1.3s cubic-bezier(0.4,0.2,0.2,1), height 1.3s cubic-bezier(0.4,0.2,0.2,1)';
+    inner.style.transform = '';
+  });
 });
 
 /* ============================================================
@@ -589,3 +678,97 @@ if (heroTitle) {
 
 // Initialise la langue qui s'attend également à appeler renderProjects()
 setLanguage(currentLang);
+
+/* ============================================================
+   PARTICLES
+   ============================================================ */
+(function () {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const COLORS = [
+    'rgba(0, 245, 180,',   // vert menthe
+    'rgba(0, 200, 255,',   // bleu cyan
+    'rgba(120, 180, 255,', // bleu ciel pastel
+    'rgba(80, 255, 200,',  // vert aqua
+    'rgba(160, 220, 255,', // bleu lavande doux
+  ];
+
+  const COUNT = 120;
+  let W, H, particles;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = document.body.scrollHeight;
+  }
+
+  function rand(min, max) { return Math.random() * (max - min) + min; }
+
+  function createParticle() {
+    return {
+      x: rand(0, W),
+      y: rand(0, H),
+      r: rand(1, 2.8),
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      alpha: rand(0.08, 0.35),
+      alphaDir: Math.random() < 0.5 ? 1 : -1,
+      alphaSpeed: rand(0.001, 0.004),
+      vx: rand(-0.15, 0.15),
+      vy: rand(-0.25, -0.05),
+    };
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({ length: COUNT }, createParticle);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (const p of particles) {
+      // Pulse alpha
+      p.alpha += p.alphaSpeed * p.alphaDir;
+      if (p.alpha >= 0.38 || p.alpha <= 0.04) p.alphaDir *= -1;
+
+      // Move
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Wrap horizontal only — vertical is fixed on full page height
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10;
+      if (p.y > H + 10) p.y = -10;
+
+      // Draw glow dot
+      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.5);
+      gradient.addColorStop(0,   `${p.color}${p.alpha})`);
+      gradient.addColorStop(1,   `${p.color}0)`);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      // Hard dot center
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `${p.color}${Math.min(p.alpha * 2.5, 0.7)})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => {
+    resize();
+    for (const p of particles) {
+      if (p.x > W) p.x = rand(0, W);
+      if (p.y > H) p.y = rand(0, H);
+    }
+  });
+
+  init();
+  draw();
+})();

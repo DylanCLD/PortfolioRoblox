@@ -13,6 +13,7 @@
 <body>
 
 <div class="bg-glow"></div>
+<canvas id="particles-canvas"></canvas>
 <!-- Subtle top gradient similar to dark premium websites -->
 <div class="bg-texture"></div>
 
@@ -146,27 +147,70 @@
     <div class="profiles-container reveal">
       <h2 class="huge-title" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 2rem;" data-i18n="team_title">NOTRE ÉQUIPE</h2>
       <div class="profiles-list">
-        <div class="profile-card">
-          <div class="profile-avatar" style="background: url('Assets/PhotoTeams/Snyko.png') center/cover;"></div>
-          <div class="profile-info">
-            <h4>Snyko</h4>
-            <p>@snyko • <span data-i18n="role_snyko">Developper + VFX</span></p>
+
+        <!-- Snyko -->
+        <div class="profile-card-wrap">
+          <div class="profile-card-inner">
+            <div class="profile-card profile-front">
+              <div class="profile-avatar" style="background: url('Assets/PhotoTeams/Snyko.png') center/cover;"></div>
+              <div class="profile-info">
+                <h4>Snyko</h4>
+                <p>@snyko • <span data-i18n="role_snyko">Développeur | VFX</span></p>
+              </div>
+              <span class="flip-hint">↩</span>
+            </div>
+            <div class="profile-card profile-back">
+              <div class="profile-back-content">
+                <h4>Snyko</h4>
+                <p data-i18n="bio_snyko">Développeur Lua depuis 6 ans, passé de Garry's Mod à Roblox. Maîtrise avancée du LuaU, scripting serveur & client. Se perfectionne en VFX depuis quelques mois — niveau intermédiaire et en progression constante.</p>
+              </div>
+              <span class="flip-hint">↩</span>
+            </div>
           </div>
         </div>
-        <div class="profile-card">
-          <div class="profile-avatar" style="background: url('Assets/PhotoTeams/TheWolfis.png') center/cover;"></div>
-          <div class="profile-info">
-            <h4>The_Wolfis</h4>
-            <p>@the_wolfis • <span data-i18n="role_wolfis">UI/UX Designer</span></p>
+
+        <!-- The_Wolfis -->
+        <div class="profile-card-wrap">
+          <div class="profile-card-inner">
+            <div class="profile-card profile-front">
+              <div class="profile-avatar" style="background: url('Assets/PhotoTeams/TheWolfis.png') center/cover;"></div>
+              <div class="profile-info">
+                <h4>The_Wolfis</h4>
+                <p>@the_wolfis • <span data-i18n="role_wolfis">UI/UX Designer</span></p>
+              </div>
+              <span class="flip-hint">↩</span>
+            </div>
+            <div class="profile-card profile-back">
+              <div class="profile-back-content">
+                <h4>The_Wolfis</h4>
+                <p data-i18n="bio_wolfis">4 ans de graphisme et de conception UI/UX. Responsable du confort visuel, de la lisibilité et de l'esthétique de chaque interface. Crée aussi des maps pour le fun et sait jongler entre design et level art.</p>
+              </div>
+              <span class="flip-hint">↩</span>
+            </div>
           </div>
         </div>
-        <div class="profile-card">
-          <div class="profile-avatar" style="background: url('Assets/PhotoTeams/Byzerma.png') center/cover;"></div>
-          <div class="profile-info">
-            <h4>Byzerma</h4>
-            <p>@sachaprr • <span data-i18n="role_byzerma">Modélisateur 3D</span></p>
+
+        <!-- Byzerma -->
+        <div class="profile-card-wrap">
+          <div class="profile-card-inner">
+            <div class="profile-card profile-front">
+              <div class="profile-avatar" style="background: url('Assets/PhotoTeams/Byzerma.png') center/cover;"></div>
+              <div class="profile-info">
+                <h4>Byzerma</h4>
+                <p>@sachaprr • <span data-i18n="role_byzerma">Modélisateur 3D</span></p>
+              </div>
+              <span class="flip-hint">↩</span>
+            </div>
+            <div class="profile-card profile-back">
+              <div class="profile-back-content">
+                <h4>Byzerma</h4>
+                <p data-i18n="bio_byzerma">5 ans de modélisation 3D, forgés par un long parcours et une formation de niveau master. Chaque asset est pensé propre, optimisé et prêt pour la production. Rigueur technique et sens du détail à chaque étape.</p>
+              </div>
+              <span class="flip-hint">↩</span>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
 
