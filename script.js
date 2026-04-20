@@ -680,7 +680,7 @@ if (heroTitle) {
 setLanguage(currentLang);
 
 /* ============================================================
-   PARTICLES
+   CONSTELLATION NETWORK
    ============================================================ */
 (function () {
   const canvas = document.getElementById('particles-canvas');
@@ -688,73 +688,85 @@ setLanguage(currentLang);
   const ctx = canvas.getContext('2d');
 
   const COLORS = [
-    'rgba(0, 245, 180,',   // vert menthe
-    'rgba(0, 200, 255,',   // bleu cyan
-    'rgba(120, 180, 255,', // bleu ciel pastel
-    'rgba(80, 255, 200,',  // vert aqua
-    'rgba(160, 220, 255,', // bleu lavande doux
+    [0, 245, 180],
+    [0, 200, 255],
+    [120, 180, 255],
+    [80, 255, 200],
   ];
 
-  const COUNT = 120;
-  let W, H, particles;
+  const COUNT      = 90;
+  const LINK_DIST  = 160;
+  const LINK_DIST2 = LINK_DIST * LINK_DIST;
+
+  let W, H, nodes;
+
+  function rand(min, max) { return Math.random() * (max - min) + min; }
 
   function resize() {
     W = canvas.width  = window.innerWidth;
     H = canvas.height = document.body.scrollHeight;
   }
 
-  function rand(min, max) { return Math.random() * (max - min) + min; }
-
-  function createParticle() {
+  function createNode() {
+    const c = COLORS[Math.floor(Math.random() * COLORS.length)];
     return {
-      x: rand(0, W),
-      y: rand(0, H),
-      r: rand(1, 2.8),
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      alpha: rand(0.08, 0.35),
+      x: rand(0, W), y: rand(0, H),
+      vx: rand(-0.18, 0.18), vy: rand(-0.18, 0.18),
+      r: rand(1.2, 2.4), c,
+      alpha: rand(0.15, 0.5),
       alphaDir: Math.random() < 0.5 ? 1 : -1,
-      alphaSpeed: rand(0.001, 0.004),
-      vx: rand(-0.15, 0.15),
-      vy: rand(-0.25, -0.05),
+      alphaSpeed: rand(0.0008, 0.003),
     };
   }
 
   function init() {
     resize();
-    particles = Array.from({ length: COUNT }, createParticle);
+    nodes = Array.from({ length: COUNT }, createNode);
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    for (const p of particles) {
-      // Pulse alpha
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist2 = dx * dx + dy * dy;
+        if (dist2 > LINK_DIST2) continue;
+        const t = 1 - dist2 / LINK_DIST2;
+        const r = (a.c[0] + b.c[0]) / 2;
+        const g = (a.c[1] + b.c[1]) / 2;
+        const bl = (a.c[2] + b.c[2]) / 2;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(${r},${g},${bl},${t * 0.18})`;
+        ctx.lineWidth = t * 1.2;
+        ctx.stroke();
+      }
+    }
+
+    for (const p of nodes) {
       p.alpha += p.alphaSpeed * p.alphaDir;
-      if (p.alpha >= 0.38 || p.alpha <= 0.04) p.alphaDir *= -1;
-
-      // Move
-      p.x += p.vx;
-      p.y += p.vy;
-
-      // Wrap horizontal only — vertical is fixed on full page height
+      if (p.alpha >= 0.55 || p.alpha <= 0.08) p.alphaDir *= -1;
+      p.x += p.vx; p.y += p.vy;
       if (p.x < -10) p.x = W + 10;
       if (p.x > W + 10) p.x = -10;
       if (p.y < -10) p.y = H + 10;
       if (p.y > H + 10) p.y = -10;
 
-      // Draw glow dot
-      const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3.5);
-      gradient.addColorStop(0,   `${p.color}${p.alpha})`);
-      gradient.addColorStop(1,   `${p.color}0)`);
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+      g.addColorStop(0, `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${p.alpha * 0.6})`);
+      g.addColorStop(1, `rgba(${p.c[0]},${p.c[1]},${p.c[2]},0)`);
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
-      ctx.fillStyle = gradient;
+      ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = g;
       ctx.fill();
 
-      // Hard dot center
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `${p.color}${Math.min(p.alpha * 2.5, 0.7)})`;
+      ctx.fillStyle = `rgba(${p.c[0]},${p.c[1]},${p.c[2]},${Math.min(p.alpha * 2, 0.8)})`;
       ctx.fill();
     }
 
@@ -763,7 +775,7 @@ setLanguage(currentLang);
 
   window.addEventListener('resize', () => {
     resize();
-    for (const p of particles) {
+    for (const p of nodes) {
       if (p.x > W) p.x = rand(0, W);
       if (p.y > H) p.y = rand(0, H);
     }
