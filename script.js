@@ -139,13 +139,7 @@ const PROJECTS = [
       'Assets/Project/UI/image4.png',
       'Assets/Project/UI/image5.png',
       'Assets/Project/UI/image6.png',
-      'Assets/Project/UI/image7.png',
-      'Assets/Project/UI/image8.png',
-      'Assets/Project/UI/image9.png',
-      'Assets/Project/UI/image10.png',
-      'Assets/Project/UI/image11.png',
-      'Assets/Project/UI/image12.png',
-      'Assets/Project/UI/image13.png'
+      'Assets/Project/UI/image7.png'
     ]
   },
   {
