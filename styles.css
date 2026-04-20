@@ -321,12 +321,15 @@ nav {
   border-top: 1px solid rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   padding: 2.5rem 0;
+}
+.marquee-track {
   display: flex;
+  width: max-content;
+  animation: scroll 28s linear infinite;
 }
 .marquee-content {
   display: flex; gap: 8rem;
-  min-width: 200%;
-  animation: scroll 20s linear infinite;
+  padding-right: 8rem;
   align-items: center;
 }
 .brand-item {
@@ -344,6 +347,7 @@ nav {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+.marquee:hover .marquee-track { animation-play-state: paused; }
 
 /* ── PROJECTS SECTION ── */
 .projects-section {
@@ -955,7 +959,7 @@ body.modal-open { overflow: hidden; }
   
   .brands-section { padding: 5rem 0; width: 100%; overflow: hidden; }
   .marquee { width: 100%; }
-  .marquee-content { gap: 3rem; }
+  .marquee-content { gap: 3rem; padding-right: 3rem; }
   .brand-item { font-size: 1.1rem; }
   
   .projects-section { padding: 4rem 0 6rem; }
